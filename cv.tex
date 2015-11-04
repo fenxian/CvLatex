@@ -1,0 +1,223 @@
+﻿\documentclass[[a4paper,12pt]{article}
+
+
+\usepackage[slantfont,boldfont]{xeCJK}%------------------------------------------ 使用 xeCJK 宏包
+\setCJKmainfont{仿宋}%设置正文为宋体
+\setCJKmonofont{Adobe Song Std}%设置等距字体
+\setCJKsansfont{楷体}%设置无衬线字体
+\setCJKfamilyfont{hei}{黑体}
+
+\usepackage[left=2cm,right=2cm,top=1cm,bottom=2cm]{geometry}%------------ 设置页边距
+
+\usepackage{multirow}
+\usepackage{tabularx}
+\usepackage{setspace}
+\usepackage{nopageno}
+
+
+\usepackage{marvosym,array,etaremune,geometry,ifsym,paralist,fixltx2e,fourier,pifont}
+\usepackage{ragged2e,titlesec,xcolor}
+
+\usepackage{hyperref}
+
+\hypersetup
+  {
+    hidelinks = true             ,
+    pdfauthor = Joseph Wright    ,
+    pdftitle  = Curriculum Vitae
+  }
+
+%\geometry
+%  {
+%    a4paper         ,
+%    nohead          ,
+%    nofoot          ,
+%    hmargin = 1.5cm ,
+%    vmargin = 2cm
+%  }
+\usepackage{xcolor}
+\definecolor{seccolor}{RGB}{155,187,89}
+\definecolor{subcolor}{RGB}{146,6,50}
+\usepackage{tikz,pgf}
+\titleformat{\section}{\Large\bfseries\sffamily}{}{0 em}
+  {%
+    \begingroup
+      \color{seccolor}%
+      %\titleline{\leaders\hrule height 0.6 em\hfill\kern 0 pt\relax}%
+    \titleline{\tikz\shade[left color=seccolor,right color=white](0,0) rectangle (\textwidth,0.3);\relax}%
+    \endgroup
+    \nobreak
+    \vspace{-1.2 em}%
+    \nobreak
+  }
+
+\usepackage{titlesec}
+\usepackage{titling}
+%\titlespacing*{章节命令}{左边距}{上文距}{下文距}[右边距]
+\titlespacing*{\section} {0pt}{0.5ex plus 0ex minus .1ex}{0.0ex plus .1ex}
+\titleformat{\subsection}{\large\itshape}{}{0 em}{}
+
+%设置题目的字体和字号
+\newcommand{\titlefont}{
+\setCJKfamilyfont{hei}{黑体}
+\fontsize{20}{24}
+}
+
+
+
+\renewcommand*\arraystretch{1.4}
+
+
+
+\newcommand*{\paper}[2]
+  {\item \href{http://dx.doi.org/#1}{\ignorespaces#2\unskip.}}
+\newcommand*{\papertitle}[1]
+  {%
+    \begingroup
+      \ifluatex
+        \addfontfeature{Numbers = Lining}%
+      \fi
+      \emph{#1}%
+    \endgroup
+  }
+
+\newlength{\sidewidth}
+\newlength{\mainwidth}
+\AtBeginDocument
+  {%
+    \settowidth{\sidewidth}{\textbf{Professional bodies}\hspace{0.75 em}}%
+    \setlength{\mainwidth}{\dimexpr\linewidth - \sidewidth\relax}%
+  }
+\newcommand*{\headline}[1]
+  {%
+    \hbox{%
+      \llap{\hspace*{0.2 em}}%
+      \textbf{#1}%
+    }%
+  }
+\newenvironment{CVtable}
+  {%
+    \begin{tabular}
+      {@{}p{\sidewidth}@{\color{subcolor}\aldineright\  }p{\mainwidth}@{}}%
+  }
+  {\end{tabular}}
+
+\linespread{1.5}
+
+\begin{document}
+%\pagestyle{empty}\thispagestyle{empty}
+
+\title{\titlefont \bfseries\sffamily \vspace{-3em} 名字 \ 求职简历 \vspace{-6em}}
+%\author{ \vspace{-1cm} 名字 \vspace{-2cm}}
+\date{}
+\maketitle
+
+\section{基本资料}
+\begin{spacing}{1}
+\begin{tabularx}{\textwidth}{XXXXXX}
+\begin{tabular}{lp{21em}ll}
+
+姓名: & \textbf{\bfseries\sffamily 名 \ 字 \ (男)}  & 学校: & 某某某某大学\\
+学历: & 硕 \ 士                                     & 专业: & 计算机科学与技术  \\
+电话: & 15111111111                                 & 邮箱: & email@email.com
+\end{tabular}
+& & &  & & %\raisebox{-5em}{\includegraphics[width=2cm]{picture.jpg}}
+\end{tabularx}
+\end{spacing}
+\vspace{-1em}
+
+\section{教育背景}
+\vspace{-1.5em}
+\begin{table}[h]
+%\centering
+\renewcommand\arraystretch{1.5}
+\begin{tabularx}{0.9\textwidth}
+{  >{\setlength\hsize{1\hsize}\centering}l>{\setlength\hsize{1\hsize}\centering}X
+   >{\setlength\hsize{1\hsize}\centering}X>{\setlength\hsize{1\hsize}\centering}X}
+  2013- 今    &  某某某某大学     & 计算机科学与技术& 工学硕士 \tabularnewline
+  2009-2013   &  某某某某大学      & 信息与计算科学& 理学学士  \tabularnewline
+\end{tabularx}
+\end{table}
+\vspace{-2em}
+
+\section{自我介绍}
+\begin{tabularx}{\textwidth}{X}
+\hspace{2em}
+%\vspace{-2em}
+本人性格稳重、待人热情、真诚，对新环境适应能力强，有着乐观向上的生活态度，对IT 行业有着浓厚的兴趣 ...
+\end{tabularx}
+\vspace{-3em}
+
+%\section{主修课程}
+%\linespread{0.5}
+%\begin{tabularx}{1\textwidth}{XXX}
+%数据结构(84) & 操作系统(92) & 机器学习(90) \\
+%高等代数(90) & 数学分析(92) & 数值代数(96)  \\
+%\end{tabularx}
+%\linespread{1}
+
+\section{专业技能}
+
+%\raggedright
+%\begin{itemize}
+%\setlength{\itemsep}{1pt}
+%   \item \textbf{\bfseries\sffamily 资格证书} \\
+%   证券从业资格 \\
+%   全国计算机等级考试二级证书 \\
+%   正在考取会计从业资格考试
+%   \item \textbf{\bfseries\sffamily 计算机使用} \\
+%   熟练使用Office (Word, Excel, PPT)办公软件 \par
+%   学习过Matlat/SPSS/SAS/R等专业软件,这些基础有助于进一步学习提高,适应公司业务需求
+%\end{itemize}
+
+\begin{itemize}
+\setlength{\itemsep}{0pt}
+%\setlength{\parsep}{100pt}
+%\setlength{\leftmargin}{0pt}
+%\setlength{\parskip}{0pt}
+\item 熟练掌握C++，熟悉SLT模板程序库使用，了解Boost库
+\item 掌握OpenCV开源视觉图像库，QT框架的使用
+\item 熟练掌握Matlab；掌握Python的使用；使用过Java，Shell等语言
+\item 具有良好的数据结构和算法基础
+\item 了解常用的机器学习算法和图像处理算法
+%\item 了解网络编程、多线程编程等
+%\item 熟悉Socket编程%，多线程编程
+\item 了解数据库、SQL语言等相关技术
+%\item 开发环境/工具：Emacs(熟练)，VS(熟练)，Git(熟练)，CMake(熟练)，MySql(一般)
+\end{itemize}
+\vspace{-3em}
+
+\section{在校实践经验}
+\begin{enumerate}
+\item \textbf{\bfseries\sffamily 某算法的研究与实现} \\
+该项目是 ...
+
+\item \textbf{\bfseries\sffamily 图像浏览/处理软件} \\
+该项目包含两项内容 ... 
+
+\item \textbf{\bfseries\sffamily 某算法研究与实现} \\
+该项目正在进行中 ...
+
+\end{enumerate}
+\vspace{-2em}
+
+\section{奖励及证书}
+\begin{itemize}
+\setlength{\itemsep}{0pt}
+\item 北某某奖学金 \par
+\item 北某某奖学金 \par
+\item 山某某奖学金 \par
+\end{itemize}
+\vspace{-2em}
+
+\section{兴趣爱好}
+
+\begin{itemize}
+\setlength{\itemsep}{0pt}
+\item 喜欢关注社会热点新闻、关注技术热点、行业动态 \par
+\item 喜欢读书，尤其是纪实类、人物传记类书籍 \par
+\item 爱好运动，喜欢徒步旅行、登山等 \par
+\end{itemize}
+
+
+\end{document}
